@@ -1,9 +1,9 @@
 import express from "express";
 
-import { ctrlWrapper } from "../../helpers/index.js";
-import * as ctrl from "../../controllers/contacts/index.js";
+import { ctrlWrapper } from "../../helpers";
+import * as ctrl from "../../controllers/contacts";
 
-import { isValidId } from "../../middlewares/index.js";
+import { isValidId } from "../../middlewares";
 
 const router = express.Router();
 

@@ -1,5 +1,5 @@
-import { createError } from "../../helpers/index.js";
-import Contact from "../../models/contacts.js";
+import { createError } from "../../helpers";
+import Contact from "../../models/contacts.ts";
 
 const removeById = async (req, res) => {
   const { id } = req.params;
