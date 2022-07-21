@@ -29,7 +29,7 @@ app.use((error, req, res, next) => {
 async function start() {
   try {
     await mongoose.connect(DB_HOST);
-    app.listen(config.PORT, () => console.log(`Server has been started on PORT: ${PORT}`));
+    app.listen(PORT, () => console.log(`Server has been started on PORT: ${PORT}`));
   } catch (error) {
     console.log("Server error!!!", error.message);
     process.exit(1);
