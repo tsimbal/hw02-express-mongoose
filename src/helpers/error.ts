@@ -1,4 +1,10 @@
-const messages = {
+import { IErrorRequest } from "../interfaces/ierror";
+
+interface IMessages {
+  [key: string]: string;
+}
+
+const messages: IMessages = {
   400: "Bad Request",
   401: "Unauthorized",
   403: "Forbidden",
@@ -6,8 +12,8 @@ const messages = {
   409: "Conflict",
 };
 
-const createError = (status, message = messages[status]) => {
-  const error = new Error(message);
+const createError = (status: number, message = messages[status]): object => {
+  const error: IErrorRequest = new Error(message);
   error.status = status;
   return error;
 };

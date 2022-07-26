@@ -1,3 +1,4 @@
 export interface IErrorRequest extends Error{
-  status?: number
+  status?: number,
+  code?: number
 }

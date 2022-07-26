@@ -1,6 +1,6 @@
-export { default as getAll } from "./getAll.ts";
-export { default as getById } from "./getById.ts";
-export { default as add } from "./add.ts";
-export { default as updateById } from "./updateById.js";
-export { default as removeById } from "./removeById.js";
-export { default as updateFavorite } from "./updateFavorite.js";
+export { default as getAll } from "./getAll";
+export { default as getById } from "./getById";
+export { default as add } from "./add";
+export { default as updateById } from "./updateById";
+export { default as removeById } from "./removeById";
+export { default as updateFavorite } from "./updateFavorite";

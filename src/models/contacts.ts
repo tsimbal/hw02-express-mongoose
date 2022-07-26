@@ -1,8 +1,10 @@
-import mongoose from "mongoose";
+import mongoose, { Document } from "mongoose";
+import { IContact } from "../interfaces/icontact";
+import { IErrorRequest } from "../interfaces/ierror";
 
 const { Schema, model } = mongoose;
 
-const contactsSchema = new Schema(
+const contactsSchema = new Schema<IContact>(
   {
     name: {
       type: String,
@@ -19,14 +21,13 @@ const contactsSchema = new Schema(
     },
     favorite: {
       type: Boolean,
-      enum: [true, false],
       default: false,
     },
   },
   { versionKey: false, timestamps: true }
 );
 
-const handleErrors = (error, data, next) => {
+const handleErrors = (error: IErrorRequest, data: Document, next: () => void): void => {
   const { name, code } = error;
   if (name === "MongoServerError" && code === 11000) {
     error.status = 409;
@@ -38,6 +39,6 @@ const handleErrors = (error, data, next) => {
 
 contactsSchema.post("save", handleErrors);
 
-const Contact = model("contacts", contactsSchema);
+const Contact = model<IContact>("contacts", contactsSchema);
 
 export default Contact;
